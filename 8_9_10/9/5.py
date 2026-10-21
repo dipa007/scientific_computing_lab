@@ -71,12 +71,12 @@ def print_table(title, ind_vals, y_fe, y_be, y_me, exact_func):
         print(f"{var:<8.2f} | {exact:<12.6f} | {err_fe:<15.2e} | {err_be:<15.2e} | {err_me:<15.2e}")
 
 def main():
-    print("=== QUESTION 3 PROBLEM ===")
+    print("==== QUESTION 3 PROBLEM ====")
     for h in [0.1, 0.05]:
         t_vals, y_fe, y_be, y_me = solve_q3(h)
         print_table(f"Q3 Data (h={h})", t_vals, y_fe, y_be, y_me, true_sol_q3)
         
-    print("\n=== QUESTION 4 PROBLEM ===")
+    print("\n==== QUESTION 4 PROBLEM ====")
     for h in [0.03, 0.01]:
         x_vals, y_fe, y_be, y_me = solve_q4(h)
         print_table(f"Q4 Data (h={h})", x_vals, y_fe, y_be, y_me, exact_rk4_q4)
