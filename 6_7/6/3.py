@@ -1,0 +1,49 @@
+# question_3.py
+# Simpson's 1/3 rule for a new function with target error < 0.5 * 10^-5
+
+import math
+
+def f(x):
+    return math.sqrt(1 - x**2) - x
+
+def simpson_13(a, b, n):
+    h = (b - a) / n
+    res = f(a) + f(b)
+    for i in range(1, n):
+        if i % 2 == 0:
+            res += 2 * f(a + i * h)
+        else:
+            res += 4 * f(a + i * h)
+    return (h / 3.0) * res
+
+def main():
+    a = 0.0
+    b = 1.0 / math.sqrt(2)
+    # The analytical true value of this integral is pi/8
+    true_val = math.pi / 8.0 
+    target_error = 0.5 * 1e-5
+    
+    n = 2
+    
+    print("Function: sqrt(1-x^2) - x")
+    print(f"Interval: [0, 1/sqrt(2)]")
+    print(f"Target Error Tolerance: {target_error}")
+    print("-" * 65)
+    print(f"{'Sub-intervals (N)':<20} | {'Approx Integral':<20} | {'Absolute Error':<20}")
+    print("-" * 65)
+    
+    while True:
+        approx = simpson_13(a, b, n)
+        error = abs(true_val - approx)
+        
+        print(f"{n:<20} | {approx:<20.9f} | {error:<20.2e}")
+        
+        if error < target_error:
+            print("-" * 65)
+            print(f"Target accuracy reached at N = {n}")
+            break
+            
+        n += 2
+
+if __name__ == "__main__":
+    main()
