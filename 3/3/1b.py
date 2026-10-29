@@ -1,6 +1,3 @@
-# question_1b.py
-# Bisection Method for f(x) = e^(-x/5) - sin(x) = 0
-
 import math
 
 def f(x):
@@ -9,17 +6,14 @@ def f(x):
 def bisection(a, b, tol=1e-7, max_iter=500):
     if f(a) * f(b) >= 0:
         return None, 0
-        
     for i in range(1, max_iter + 1):
         c = (a + b) / 2.0
         if abs(f(c)) < tol:
             return c, i
-            
         if f(a) * f(c) < 0:
             b = c
         else:
-            a = c
-            
+            a = c 
     return c, max_iter
 
 def main():
@@ -27,7 +21,6 @@ def main():
     
     print(f"{'Interval [a, b]':<20} | {'Approx Root':<15} | {'|f(root)|':<15} | {'Steps'}")
     print("-" * 65)
-    
     for a, b in intervals:
         root, steps = bisection(a, b)
         if root is not None:

@@ -1,6 +1,3 @@
-# question_3.py
-# Fixed Point Iteration Method with different initial guesses x0
-
 import math
 
 def g_a(x):
@@ -20,14 +17,12 @@ def fixed_point(g_func, x0, tol=1e-7, max_iter=500):
 
 def main():
     print("VARYING INITIAL GUESS (x0) FOR FIXED POINT ITERATION")
-    
     print("\nEquation 2(a): x = (x + 1)^(1/3)")
     print(f"{'Initial Guess (x0)':<20} | {'Approx Root':<15} | {'Iterations'}")
     print("-" * 55)
     for x0 in [1.0, 1.25, 1.75, 2.0]:
         root, steps = fixed_point(g_a, x0)
         print(f"{x0:<20.2f} | {root:<15.9f} | {steps}")
-
     print("\nEquation 2(b): x = (2 - e^x + x^2) / 3")
     print(f"{'Initial Guess (x0)':<20} | {'Approx Root':<15} | {'Iterations'}")
     print("-" * 55)

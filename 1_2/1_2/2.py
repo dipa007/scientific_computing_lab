@@ -1,6 +1,3 @@
-# question_2.py
-# Bisection method for f(x) = cos(x) - x*e^x with multiple stopping criteria.
-
 import math
 
 def f(x):
@@ -13,8 +10,6 @@ def bisection_method(a_init, b_init, criterion, tol=5e-8, max_iter=500):
     
     for i in range(1, max_iter + 1):
         c = (a + b) / 2.0
-        
-        # Check stopping criteria starting from the second iteration
         if c_old is not None:
             abs_err = abs(c - c_old)
             rel_err = abs_err / abs(c) if c != 0 else abs_err
@@ -26,15 +21,11 @@ def bisection_method(a_init, b_init, criterion, tol=5e-8, max_iter=500):
                 return a_init, b_init, c, i
             elif criterion == "Functional value" and func_val < tol:
                 return a_init, b_init, c, i
-                
-        # Update interval
         if f(a) * f(c) < 0:
             b = c
         else:
             a = c
-            
         c_old = c
-        
     return a_init, b_init, c_old, max_iter
 
 def main():

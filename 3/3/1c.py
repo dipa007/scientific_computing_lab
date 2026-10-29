@@ -1,6 +1,3 @@
-# question_1c.py
-# Secant and Regula Falsi for f(x) = e^(-x/5) - sin(x) = 0
-
 import math
 
 def f(x):
@@ -38,7 +35,6 @@ def main():
     for a, b in intervals:
         root, steps = secant(a, b)
         print(f"[{a:<3.1f}, {b:<4.1f}]{'':<9} | {root:<15.9f} | {abs(f(root)):<15.2e} | {steps}")
-        
     print("\nREGULA FALSI METHOD")
     print(f"{'Interval [a, b]':<20} | {'Approx Root':<15} | {'|f(root)|':<15} | {'Steps'}")
     print("-" * 65)

@@ -1,6 +1,3 @@
-# question_1d.py
-# Newton's and Chebyshev Methods for f(x) = e^(-x/5) - sin(x) = 0
-
 import math
 
 def f(x):
@@ -41,7 +38,6 @@ def main():
     for x0 in starting_points:
         root, steps = newton(x0)
         print(f"{x0:<20.4f} | {root:<15.9f} | {abs(f(root)):<15.2e} | {steps}")
-        
     print("\nCHEBYSHEV METHOD")
     print(f"{'Initial Point x0':<20} | {'Approx Root':<15} | {'|f(root)|':<15} | {'Steps'}")
     print("-" * 65)

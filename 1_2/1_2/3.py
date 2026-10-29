@@ -1,14 +1,9 @@
-# question_3.py
-# Newton-Raphson and Fixed-Point Iteration for f(x) = cos(x) - x*e^x.
-
 import math
 
 def f(x):
     return math.cos(x) - x * math.exp(x)
-
 def df(x):
     return -math.sin(x) - math.exp(x) * (1 + x)
-
 def g(x):
     return math.cos(x) * math.exp(-x)
 
@@ -16,7 +11,6 @@ def newton_raphson(a, b, x0, criterion, tol=5e-8, max_iter=500):
     x_old = x0
     for i in range(1, max_iter + 1):
         x_new = x_old - f(x_old) / df(x_old)
-        
         abs_err = abs(x_new - x_old)
         rel_err = abs_err / abs(x_new) if x_new != 0 else abs_err
         func_val = abs(f(x_new))
@@ -35,7 +29,6 @@ def fixed_point(a, b, x0, criterion, tol=5e-8, max_iter=500):
     x_old = x0
     for i in range(1, max_iter + 1):
         x_new = g(x_old)
-        
         abs_err = abs(x_new - x_old)
         rel_err = abs_err / abs(x_new) if x_new != 0 else abs_err
         func_val = abs(f(x_new))
